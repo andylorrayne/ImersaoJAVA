@@ -35,10 +35,7 @@ public class App {
                     System.out.print(" ⭐");
                 }
 
-                System.out.println("\n");
-
-                
-                
+                System.out.println("\n");                
                 
             }
         }
@@ -56,10 +53,18 @@ public class App {
             List<Map<String, String>> listaDeFilmes = parser.parse(body);
 
             for (Map<String,String> filme : listaDeFilmes) {
-                System.out.println(filme.get("title"));
-                System.out.println(filme.get("image"));
-                System.out.println(filme.get("imDbRating"));
-                System.out.println();
+                System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
+                System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
+                var ranking = Float.parseFloat(filme.get("imDbRating"));
+                //System.out.println(ranking);
+                int estrela = Math.round(ranking);
+
+                for (int i=1 ; i < estrela; i++ ){
+                    System.out.print(" ⭐");
+                }
+
+                System.out.println("\n");                
+                
             }
         }
 
@@ -76,10 +81,18 @@ public class App {
             List<Map<String, String>> listaDeFilmes = parser.parse(body);
 
             for (Map<String,String> filme : listaDeFilmes) {
-                System.out.println(filme.get("title"));
-                System.out.println(filme.get("image"));
-                System.out.println(filme.get("imDbRating"));
-                System.out.println();
+                System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
+                System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
+                var ranking = Float.parseFloat(filme.get("imDbRating"));
+                //System.out.println(ranking);
+                int estrela = Math.round(ranking);
+
+                for (int i=1 ; i < estrela; i++ ){
+                    System.out.print(" ⭐");
+                }
+
+                System.out.println("\n");                
+                
             }
         }
 
@@ -96,10 +109,18 @@ public class App {
             List<Map<String, String>> listaDeFilmes = parser.parse(body);
 
             for (Map<String,String> filme : listaDeFilmes) {
-                System.out.println(filme.get("title"));
-                System.out.println(filme.get("image"));
-                System.out.println(filme.get("imDbRating"));
-                System.out.println();
+                System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
+                System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
+                var ranking = Float.parseFloat(filme.get("imDbRating"));
+                //System.out.println(ranking);
+                int estrela = Math.round(ranking);
+
+                for (int i=1 ; i < estrela; i++ ){
+                    System.out.print(" ⭐");
+                }
+
+                System.out.println("\n");                
+                
             }
         }
 
@@ -116,10 +137,18 @@ public class App {
             List<Map<String, String>> listaDeFilmes = parser.parse(body);
 
             for (Map<String,String> filme : listaDeFilmes) {
-                System.out.println(filme.get("title"));
-                System.out.println(filme.get("image"));
-                System.out.println(filme.get("imDbRating"));
-                System.out.println("⭐⭐⭐⭐⭐⭐");
+                System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
+                System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
+                var ranking = Float.parseFloat(filme.get("imDbRating"));
+                //System.out.println(ranking);
+                int estrela = Math.round(ranking);
+
+                for (int i=1 ; i < estrela; i++ ){
+                    System.out.print(" ⭐");
+                }
+
+                System.out.println("\n");                
+                
             }
         }
 
