@@ -26,8 +26,8 @@ public class App {
             List<Map<String, String>> listaDeFilmes = parser.parse(body);
 
             for (Map<String,String> filme : listaDeFilmes) {
-                System.out.println(filme.get("title"));
-                System.out.println(filme.get("image"));
+                System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
+                System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
                 System.out.println(filme.get("imDbRating"));
                 System.out.println();
             }
