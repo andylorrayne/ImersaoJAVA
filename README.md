@@ -5,8 +5,6 @@
 
 # ------------------- Figurinha --------------------------
 
-![image](https://user-images.githubusercontent.com/26768232/228681557-2bc40347-a093-493b-adad-67557073c1b0.png)
-
 ![image](https://user-images.githubusercontent.com/26768232/228684890-4c23426d-0e65-4e04-b35e-41e1d29a8ba6.png)
 
 
