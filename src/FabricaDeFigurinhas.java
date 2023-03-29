@@ -30,26 +30,31 @@ public class FabricaDeFigurinhas {
         graphics.drawImage(imagemOriginal, 0 , 0,  null);
 
         //configurar fonte
+        var fonteSize = largura/100 * 5;
 
-        var fonte = new Font("Impact", Font.CENTER_BASELINE ,64);
+        var fonte = new Font("Impact", Font.CENTER_BASELINE , fonteSize);
         graphics.setColor(Color.YELLOW);
         graphics.setFont(fonte);
 
         //colocar a frase do sticker
+        int textoLegenda = ranking.length();
 
-        graphics.drawString(ranking, largura/2, novaAltura-100);
+        
+        graphics.drawString(ranking, (largura/4) -textoLegenda, novaAltura-100);
+
+          
         
 
         //escrever imagem nova em arquivo
 
-        File saida = new File("./consumindoAPI/saida/");
+        File saida = new File("./saida/"); 
 
         if(saida.exists()){
-            ImageIO.write(novImagem, "png", new File( "./Desafio/saida/", nomeArquivo));
+            ImageIO.write(novImagem, "png", new File("./saida/", nomeArquivo));
 
         }else{
             saida.mkdir();
-            ImageIO.write(novImagem, "png", new File( "./Desafio/saida/", nomeArquivo));
+            ImageIO.write(novImagem, "png", new File("./saida/", nomeArquivo));
 
         }
 

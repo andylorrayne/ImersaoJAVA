@@ -29,8 +29,8 @@ public class App {
             var geradora = new FabricaDeFigurinhas();
 
             for (Map<String,String> filme : listaDeFilmes) {
-                //System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
-                //System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
+                System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
+                System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
                 String urlImagem = filme.get("image");
                 String titulo = filme.get("title");
                 var ranking = Float.parseFloat(filme.get("imDbRating"));
