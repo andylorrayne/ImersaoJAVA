@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
@@ -39,19 +41,28 @@ public class App {
                 String rodape = new String();
                 
                 InputStream inputStream = new URL(urlImagem).openStream();
-                String nomeArquivo = titulo + ".png";
+                InputStream icone = null;
 
                 if (estrela <= 6 ){
                     rodape = "Não recomendado";
-                }
-                if (estrela == 5 && estrela <= 7){
-                    rodape = "Recomendado";
-                }
-                if (estrela >= 8){
-                    rodape = "Muito recomendado";
+                    icone = new FileInputStream(new File("./icon/eu.jpg") );
                 }
 
-                geradora.cria(inputStream, nomeArquivo, rodape);
+                if (estrela == 5 && estrela <= 7){
+                    rodape = "Recomendado";
+                    icone = new FileInputStream(new File("./icon/eu-joinha.jpg") );
+                }
+                
+                if (estrela >= 8){
+                    rodape = "Muito recomendado";
+                    icone = new FileInputStream(new File("./icon/eu-joinha.jpg") );
+                }
+
+                String nomeArquivo = titulo.replace(":", "-") + ".png";
+
+                //icone = new FileInputStream(new File("./icon/eu.jpg") );
+                
+                geradora.cria(inputStream, nomeArquivo, rodape, icone);
 
                /* for (int i=1 ; i < estrela; i++ ){
                     System.out.print(" ⭐");

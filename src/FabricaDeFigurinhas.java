@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 
 
 public class FabricaDeFigurinhas {
-    public void cria(InputStream inputStream, String nomeArquivo, String comentario) throws Exception {
+    public void cria(InputStream inputStream, String nomeArquivo, String comentario, InputStream icones) throws Exception {
         //leitura da imagem
 
        // BufferedImage imagemOriginal = ImageIO.read(new File("consumindoAPI/entrada/filme.jpg"));
@@ -41,12 +41,20 @@ public class FabricaDeFigurinhas {
         graphics.setColor(Color.YELLOW);
         graphics.setFont(fonte);
 
-        
+        // ICONE 
+        BufferedImage iconeAndy = ImageIO.read(icones);
+        int iconeY = altura;//altura - iconeAndy.getHeight();
+        graphics.drawImage(iconeAndy, 100, iconeY, 200, 200, null);
+
+
         //variaveis de calculo para localização da frase
-        
         int textoLegenda = comentario.length();
         int posicaoTextoX = largura/3-textoLegenda;
         int posicaoTextoY = novaAltura - 100;
+
+        //posição do texto
+        
+        graphics.drawString(comentario, posicaoTextoX, posicaoTextoY);
 
         //contornando o texto
         FontRenderContext fontRenderContext = graphics.getFontRenderContext();
@@ -65,9 +73,7 @@ public class FabricaDeFigurinhas {
         graphics.setClip(outline);
 
 
-        //posição do texto
         
-        graphics.drawString(comentario, posicaoTextoX, posicaoTextoY);
 
         //escrever imagem nova em arquivo
 
