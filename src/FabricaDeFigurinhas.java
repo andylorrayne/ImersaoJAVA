@@ -1,6 +1,11 @@
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.font.FontRenderContext;
+import java.awt.font.TextLayout;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.InputStream;
@@ -8,11 +13,11 @@ import javax.imageio.ImageIO;
 
 
 public class FabricaDeFigurinhas {
-    public void cria(InputStream inputStream, String nomeArquivo, String ranking) throws Exception {
+    public void cria(InputStream inputStream, String nomeArquivo, String comentario) throws Exception {
         //leitura da imagem
 
        // BufferedImage imagemOriginal = ImageIO.read(new File("consumindoAPI/entrada/filme.jpg"));
-       BufferedImage imagemOriginal = ImageIO.read(inputStream);
+        BufferedImage imagemOriginal = ImageIO.read(inputStream);
 
 
         //criar imagem em memoria com transparencia e tamanho diferente
@@ -36,14 +41,33 @@ public class FabricaDeFigurinhas {
         graphics.setColor(Color.YELLOW);
         graphics.setFont(fonte);
 
-        //colocar a frase do sticker
-        int textoLegenda = ranking.length();
-
         
-        graphics.drawString(ranking, (largura/4) -textoLegenda, novaAltura-100);
-
-          
+        //variaveis de calculo para localização da frase
         
+        int textoLegenda = comentario.length();
+        int posicaoTextoX = largura/3-textoLegenda;
+        int posicaoTextoY = novaAltura - 100;
+
+        //contornando o texto
+        FontRenderContext fontRenderContext = graphics.getFontRenderContext();
+        var textLayout = new TextLayout(comentario, fonte, fontRenderContext);
+
+        Shape outline = textLayout.getOutline(null);
+        AffineTransform transform = graphics.getTransform();
+        transform.translate(posicaoTextoX, posicaoTextoY);
+        graphics.setTransform(transform);
+
+
+        var outlineStroke =  new BasicStroke(largura * 0.004f);
+        graphics.setStroke(outlineStroke);
+        graphics.setColor(Color.BLACK);
+        graphics.draw(outline);
+        graphics.setClip(outline);
+
+
+        //posição do texto
+        
+        graphics.drawString(comentario, posicaoTextoX, posicaoTextoY);
 
         //escrever imagem nova em arquivo
 
