@@ -1,6 +1,4 @@
-public class FabricaDeFigurinhas {
-
-    import java.awt.Color;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -9,7 +7,7 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 
 
-public class FabricaDeFigurinha {
+public class FabricaDeFigurinhas {
     public void cria(InputStream inputStream, String nomeArquivo, String ranking) throws Exception {
         //leitura da imagem
 
@@ -47,11 +45,11 @@ public class FabricaDeFigurinha {
         File saida = new File("./consumindoAPI/saida/");
 
         if(saida.exists()){
-            ImageIO.write(novImagem, "png", new File( "./consumindoAPI/saida/", nomeArquivo));
+            ImageIO.write(novImagem, "png", new File( "./Desafio/saida/", nomeArquivo));
 
         }else{
             saida.mkdir();
-            ImageIO.write(novImagem, "png", new File( "./consumindoAPI/saida/", nomeArquivo));
+            ImageIO.write(novImagem, "png", new File( "./Desafio/saida/", nomeArquivo));
 
         }
 
@@ -59,7 +57,4 @@ public class FabricaDeFigurinha {
 
     }
 
-}
-
-    
 }

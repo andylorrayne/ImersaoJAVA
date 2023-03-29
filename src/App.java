@@ -1,4 +1,6 @@
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -24,16 +26,36 @@ public class App {
             var parser = new JsonParser();
             List<Map<String, String>> listaDeFilmes = parser.parse(body);
 
+            var geradora = new FabricaDeFigurinhas();
+
             for (Map<String,String> filme : listaDeFilmes) {
-                System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
-                System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
+                //System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
+                //System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
+                String urlImagem = filme.get("image");
+                String titulo = filme.get("title");
                 var ranking = Float.parseFloat(filme.get("imDbRating"));
                 //System.out.println(ranking);
                 int estrela = Math.round(ranking);
+                String rodape = new String();
+                
+                InputStream inputStream = new URL(urlImagem).openStream();
+                String nomeArquivo = titulo + ".png";
 
-                for (int i=1 ; i < estrela; i++ ){
-                    System.out.print(" ⭐");
+                if (estrela <= 6 ){
+                    rodape = "Não recomendado";
                 }
+                if (estrela == 5 && estrela <= 7){
+                    rodape = "Recomendado";
+                }
+                if (estrela >= 8){
+                    rodape = "Muito recomendado";
+                }
+
+                geradora.cria(inputStream, nomeArquivo, rodape);
+
+               /* for (int i=1 ; i < estrela; i++ ){
+                    System.out.print(" ⭐");
+                }*/
 
                 System.out.println("\n");                
                 
