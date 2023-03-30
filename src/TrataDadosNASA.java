@@ -1,4 +1,3 @@
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +16,7 @@ public class TrataDadosNASA {
             String titulo = atributos.get("title");
 
             
-            Conteudo conteudo = new Conteudo();
+            Conteudo conteudo = new Conteudo(urlImagem, titulo);
 
             conteudos.add(conteudo);
 
