@@ -62,7 +62,7 @@ public class App {
 
                 //icone = new FileInputStream(new File("./icon/eu.jpg") );
                 
-                geradora.cria(inputStream, nomeArquivo, rodape, icone);
+                extracted(geradora, rodape, inputStream, icone, nomeArquivo);
 
                /* for (int i=1 ; i < estrela; i++ ){
                     System.out.print(" ⭐");
@@ -84,17 +84,38 @@ public class App {
     
             var parser = new JsonParser();
             List<Map<String, String>> listaDeFilmes = parser.parse(body);
+            var geradora = new FabricaDeFigurinhas();
 
             for (Map<String,String> filme : listaDeFilmes) {
                 System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
                 System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
+                String urlImagem = filme.get("image");
+                String titulo = filme.get("title");
                 var ranking = Float.parseFloat(filme.get("imDbRating"));
                 //System.out.println(ranking);
                 int estrela = Math.round(ranking);
+                String rodape = new String();
+                
+                InputStream inputStream = new URL(urlImagem).openStream();
+                InputStream icone = null;
 
-                for (int i=1 ; i < estrela; i++ ){
-                    System.out.print(" ⭐");
+                if (estrela <= 7 ){
+                    rodape = "Não recomendado";
+                    icone = new FileInputStream(new File("./icon/eu.jpg") );
                 }
+
+                if (estrela >= 7 && estrela <= 9){
+                    rodape = "Recomendado";
+                    icone = new FileInputStream(new File("./icon/eu-joinha.jpg") );
+                }
+                
+                if (estrela >= 9){
+                    rodape = "Muito recomendado";
+                    icone = new FileInputStream(new File("./icon/eu-joinha.jpg") );
+                }
+
+                String nomeArquivo = titulo.replace(":", "-") + ".png";
+                geradora.cria(inputStream, nomeArquivo, rodape, icone);
 
                 System.out.println("\n");                
                 
@@ -112,17 +133,44 @@ public class App {
     
             var parser = new JsonParser();
             List<Map<String, String>> listaDeFilmes = parser.parse(body);
+            var geradora = new FabricaDeFigurinhas();
 
             for (Map<String,String> filme : listaDeFilmes) {
                 System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
                 System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
+                String urlImagem = filme.get("image");
+                String titulo = filme.get("title");
                 var ranking = Float.parseFloat(filme.get("imDbRating"));
-                //System.out.println(ranking);
                 int estrela = Math.round(ranking);
+                String rodape = new String();
+                
+                InputStream inputStream = new URL(urlImagem).openStream();
+                InputStream icone = null;
 
-                for (int i=1 ; i < estrela; i++ ){
-                    System.out.print(" ⭐");
+                if (estrela <= 7 ){
+                    rodape = "Não recomendado";
+                    icone = new FileInputStream(new File("./icon/eu.jpg") );
                 }
+
+                if (estrela >= 7 && estrela <= 9){
+                    rodape = "Recomendado";
+                    icone = new FileInputStream(new File("./icon/eu-joinha.jpg") );
+                }
+                
+                if (estrela >= 9){
+                    rodape = "Muito recomendado";
+                    icone = new FileInputStream(new File("./icon/eu-joinha.jpg") );
+                }
+
+                String nomeArquivo = titulo.replace(":", "-") + ".png";
+
+                //icone = new FileInputStream(new File("./icon/eu.jpg") );
+                
+                extracted(geradora, rodape, inputStream, icone, nomeArquivo);
+
+               /* for (int i=1 ; i < estrela; i++ ){
+                    System.out.print(" ⭐");
+                }*/
 
                 System.out.println("\n");                
                 
@@ -141,16 +189,44 @@ public class App {
             var parser = new JsonParser();
             List<Map<String, String>> listaDeFilmes = parser.parse(body);
 
+            var geradora = new FabricaDeFigurinhas();
             for (Map<String,String> filme : listaDeFilmes) {
                 System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
                 System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
+                String urlImagem = filme.get("image");
+                String titulo = filme.get("title");
                 var ranking = Float.parseFloat(filme.get("imDbRating"));
                 //System.out.println(ranking);
                 int estrela = Math.round(ranking);
+                String rodape = new String();
+                
+                InputStream inputStream = new URL(urlImagem).openStream();
+                InputStream icone = null;
 
-                for (int i=1 ; i < estrela; i++ ){
-                    System.out.print(" ⭐");
+                if (estrela <= 7 ){
+                    rodape = "Não recomendado";
+                    icone = new FileInputStream(new File("./icon/eu.jpg") );
                 }
+
+                if (estrela >= 7 && estrela <= 9){
+                    rodape = "Recomendado";
+                    icone = new FileInputStream(new File("./icon/eu-joinha.jpg") );
+                }
+                
+                if (estrela >= 9){
+                    rodape = "Muito recomendado";
+                    icone = new FileInputStream(new File("./icon/eu-joinha.jpg") );
+                }
+
+                String nomeArquivo = titulo.replace(":", "-") + ".png";
+
+                //icone = new FileInputStream(new File("./icon/eu.jpg") );
+                
+                extracted(geradora, rodape, inputStream, icone, nomeArquivo);
+
+               /* for (int i=1 ; i < estrela; i++ ){
+                    System.out.print(" ⭐");
+                }*/
 
                 System.out.println("\n");                
                 
@@ -168,17 +244,45 @@ public class App {
     
             var parser = new JsonParser();
             List<Map<String, String>> listaDeFilmes = parser.parse(body);
+            var geradora = new FabricaDeFigurinhas();
 
             for (Map<String,String> filme : listaDeFilmes) {
                 System.out.println("\u001b[37m \u001b[45m" + filme.get("title") + "\u001b[m");
                 System.out.println("\u001b[36;1m \u001b[4m" + filme.get("image") +"\u001b[m" );
+                String urlImagem = filme.get("image");
+                String titulo = filme.get("title");
                 var ranking = Float.parseFloat(filme.get("imDbRating"));
                 //System.out.println(ranking);
                 int estrela = Math.round(ranking);
+                String rodape = new String();
+                
+                InputStream inputStream = new URL(urlImagem).openStream();
+                InputStream icone = null;
 
-                for (int i=1 ; i < estrela; i++ ){
-                    System.out.print(" ⭐");
+                if (estrela <= 7 ){
+                    rodape = "Não recomendado";
+                    icone = new FileInputStream(new File("./icon/eu.jpg") );
                 }
+
+                if (estrela >= 7 && estrela <= 9){
+                    rodape = "Recomendado";
+                    icone = new FileInputStream(new File("./icon/eu-joinha.jpg") );
+                }
+                
+                if (estrela >= 9){
+                    rodape = "Muito recomendado";
+                    icone = new FileInputStream(new File("./icon/eu-joinha.jpg") );
+                }
+
+                String nomeArquivo = titulo.replace(":", "-") + ".png";
+
+                //icone = new FileInputStream(new File("./icon/eu.jpg") );
+                
+                extracted(geradora, rodape, inputStream, icone, nomeArquivo);
+
+               /* for (int i=1 ; i < estrela; i++ ){
+                    System.out.print(" ⭐");
+                }*/
 
                 System.out.println("\n");                
                 
@@ -186,5 +290,10 @@ public class App {
         }
 
 
+    }
+
+    private static void extracted(FabricaDeFigurinhas geradora, String rodape, InputStream inputStream,
+            InputStream icone, String nomeArquivo) throws Exception {
+        geradora.cria(inputStream, nomeArquivo, rodape, icone);
     }
 }
