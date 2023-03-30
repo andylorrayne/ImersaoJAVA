@@ -44,7 +44,7 @@ public class FabricaDeFigurinhas {
         // ICONE 
         BufferedImage iconeAndy = ImageIO.read(icones);
         int iconeY = altura;//altura - iconeAndy.getHeight();
-        graphics.drawImage(iconeAndy, 100, iconeY, 200, 200, null);
+        graphics.drawImage(iconeAndy, 0, iconeY, 200, 200, null);
 
 
         //variaveis de calculo para localização da frase
