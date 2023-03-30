@@ -7,20 +7,14 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
-import java.util.List;
-import java.util.Map;
+
 
 public class lendoAPI{
 
     public static void funcao(String url) throws Exception {
-        URI endereco = URI.create(url);
-        var client = HttpClient.newHttpClient();
-        var request = HttpRequest.newBuilder(endereco).GET().build();
-        HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-        String body = response.body();
         
-        var parser = new JsonParser();
-        List<Map<String, String>> listaDeFilmes = parser.parse(body);
+        
+        
     
         var geradora = new FabricaDeFigurinhas();
     
@@ -35,6 +29,8 @@ public class lendoAPI{
             String rodape = new String();
                     
             InputStream inputStream = new URL(urlImagem).openStream();
+           
+           
             InputStream icone = null;
     
             if (estrela <= 6 ){

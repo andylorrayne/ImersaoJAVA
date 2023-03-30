@@ -8,7 +8,11 @@ public class App {
         if (a == 1){
             //MELHORES FILMES
             String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json";
-            lendoAPI.funcao(url);
+            //lendoAPI.funcao(url);
+            var comunicador = new ClienteHTTP();
+            String json = comunicador.consumaAPI(url);
+            var parser = new JsonParser();
+            List<Map<String, String>> conteudoJSON = parser.parse(json);
         }
         
         if (a == 2){
