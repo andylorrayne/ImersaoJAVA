@@ -21,7 +21,7 @@ public class ClienteHTTP {
             return body;
             
         } catch (IOException | InterruptedException ex) {
-            throw new RuntimeException(ex);
+            throw new ErroLeituraAPI("Erro ao ler API! Verifique a entrada fornecida! ");
         }
 
     }

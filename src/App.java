@@ -1,8 +1,6 @@
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
-import java.net.URI;
 import javax.swing.JOptionPane;
 
 public class App {
@@ -15,25 +13,27 @@ public class App {
         var TrataDadosIMDB = new TrataDadosIMDB();
         
 
-
         if (a == 5){
 
             //NASA
-            String url = "https://api.nasa.gov/planetary/apod?api_key=Ct8lUUsKx3AyA3N1CKIL1LRBU5bEP42T3VBXhEGd&start_date=2022-04-26&end_date=2022-04-28";
+                String url = "https://api.nasa.gov/planetary/apod?api_key=Ct8lUUsKx3AyA3N1CKIL1LRBU5bEP42T3VBXhEGd&start_date=2022-04-26&end_date=2022-04-28";
                 var conteudoAPI = conexao.consumaAPI(url);
                 var listaconteudo = TrataDadosNASA.extraiConteudo(conteudoAPI);
                 var geradora = new FabricaDeFigurinhas();
-                        
+                
+
+                System.out.println();
 
                 for (Conteudo conteudo : listaconteudo) {
-                    var titulo = conteudo.getTitulo();
-                    var urlImagem = conteudo.getUrLImagem();
+                    var titulo = conteudo.titulo();
+                    var urlImagem = conteudo.urLImagem();
                     
                     System.out.println(titulo);
 
                     String nomeArquivo = titulo.replace(":", "-") + ".png";
 
                     //InputStream icone= null;
+                    
 
                     InputStream inputStream = new URL(urlImagem).openStream();
                     
@@ -57,8 +57,8 @@ public class App {
                     
 
             for (Conteudo conteudo : listaconteudo) {
-                var titulo = conteudo.getTitulo();
-                var urlImagem = conteudo.getUrLImagem();
+                var titulo = conteudo.titulo();
+                var urlImagem = conteudo.urLImagem();
                 System.out.println(titulo);
                 
                 String nomeArquivo = titulo.replace(":", "-") + ".png";
@@ -86,8 +86,8 @@ public class App {
                     
 
             for (Conteudo conteudo : listaconteudo) {
-                var titulo = conteudo.getTitulo();
-                var urlImagem = conteudo.getUrLImagem();
+                var titulo = conteudo.titulo();
+                var urlImagem = conteudo.urLImagem();
                 System.out.println(titulo);
                 
                 String nomeArquivo = titulo.replace(":", "-") + ".png";
@@ -115,8 +115,8 @@ public class App {
                     
 
             for (Conteudo conteudo : listaconteudo) {
-                var titulo = conteudo.getTitulo();
-                var urlImagem = conteudo.getUrLImagem();
+                var titulo = conteudo.titulo();
+                var urlImagem = conteudo.urLImagem();
                 System.out.println(titulo);
                 
                 String nomeArquivo = titulo.replace(":", "-") + ".png";
@@ -143,8 +143,8 @@ public class App {
                     
 
             for (Conteudo conteudo : listaconteudo) {
-                var titulo = conteudo.getTitulo();
-                var urlImagem = conteudo.getUrLImagem();
+                var titulo = conteudo.titulo();
+                var urlImagem = conteudo.urLImagem();
                 System.out.println(titulo);
                 
                 String nomeArquivo = titulo.replace(":", "-") + ".png";
