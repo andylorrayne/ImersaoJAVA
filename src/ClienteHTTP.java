@@ -8,6 +8,7 @@ import java.net.http.HttpResponse.BodyHandlers;
 
 public class ClienteHTTP {
 
+
     public String consumaAPI(String url){
 
         try {

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class TrataDadosNASA {
+public class TrataDadosNASA implements TrataDados {
     public List <Conteudo> extraiConteudo (String json){
         
         var parser = new JsonParser();
@@ -12,11 +12,12 @@ public class TrataDadosNASA {
 
         for (Map<String,String> atributos : listaAtributos) {
 
+            
             String urlImagem = atributos.get("url");
             String titulo = atributos.get("title");
 
             
-            Conteudo conteudo = new Conteudo(urlImagem, titulo);
+            Conteudo conteudo = new Conteudo(titulo, urlImagem);
 
             conteudos.add(conteudo);
 

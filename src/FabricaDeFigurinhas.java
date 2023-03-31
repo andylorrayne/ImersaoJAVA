@@ -9,15 +9,18 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.InputStream;
+import java.net.URI;
+
 import javax.imageio.ImageIO;
 
 
 public class FabricaDeFigurinhas {
-    public void cria(InputStream inputStream, String nomeArquivo, String comentario, InputStream icones) throws Exception {
+    public void cria(String nomeArquivo, InputStream urlImagem, InputStream icones, String comentario) throws Exception {
         //leitura da imagem
 
-       // BufferedImage imagemOriginal = ImageIO.read(new File("consumindoAPI/entrada/filme.jpg"));
-        BufferedImage imagemOriginal = ImageIO.read(inputStream);
+        
+        //BufferedImage imagemOriginal = ImageIO.read(new File(urlImagem));
+        BufferedImage imagemOriginal = ImageIO.read(urlImagem);
 
 
         //criar imagem em memoria com transparencia e tamanho diferente
