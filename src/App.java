@@ -1,6 +1,8 @@
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 public class App {
@@ -16,13 +18,15 @@ public class App {
         if (a == 5){
 
             //NASA
-                String url = "https://api.nasa.gov/planetary/apod?api_key=Ct8lUUsKx3AyA3N1CKIL1LRBU5bEP42T3VBXhEGd&start_date=2022-04-26&end_date=2022-04-28";
+
+                URLsAPI api = URLsAPI.URL_API_NASA;
+                String url = api.getUrl();
                 var conteudoAPI = conexao.consumaAPI(url);
                 var listaconteudo = TrataDadosNASA.extraiConteudo(conteudoAPI);
                 var geradora = new FabricaDeFigurinhas();
-                
 
-                System.out.println();
+                //FuncaoLaco(listaconteudo);
+                
 
                 for (Conteudo conteudo : listaconteudo) {
                     var titulo = conteudo.titulo();
@@ -49,8 +53,8 @@ public class App {
 
         if (a == 1){
             //MELHORES FILMES
-
-            String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json";
+            URLsAPI api = URLsAPI.URL_API_IMDB1;
+            String url = api.getUrl();
             var conteudoAPI = conexao.consumaAPI(url);
             var listaconteudo = TrataDadosIMDB.extraiConteudo(conteudoAPI);
             var geradora = new FabricaDeFigurinhas();
@@ -78,8 +82,8 @@ public class App {
 
         if (a == 2){
             //FILMES POPULARES
-
-            String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/MostPopularMovies.json";
+            URLsAPI api = URLsAPI.URL_API_IMDB2;
+            String url = api.getUrl();
             var conteudoAPI = conexao.consumaAPI(url);
             var listaconteudo = TrataDadosIMDB.extraiConteudo(conteudoAPI);
             var geradora = new FabricaDeFigurinhas();
@@ -108,7 +112,8 @@ public class App {
         if (a == 3){
             //MELHORES SÉRIES
 
-            String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopTVs.json";
+            URLsAPI api = URLsAPI.URL_API_IMDB3;
+            String url = api.getUrl();
             var conteudoAPI = conexao.consumaAPI(url);
             var listaconteudo = TrataDadosIMDB.extraiConteudo(conteudoAPI);
             var geradora = new FabricaDeFigurinhas();
@@ -136,7 +141,8 @@ public class App {
 
         if (a == 4){
             //MELHORES SÉRIES
-            String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/MostPopularTVs.json";
+            URLsAPI api = URLsAPI.URL_API_IMDB4;
+            String url = api.getUrl();
             var conteudoAPI = conexao.consumaAPI(url);
             var listaconteudo = TrataDadosIMDB.extraiConteudo(conteudoAPI);
             var geradora = new FabricaDeFigurinhas();
@@ -172,5 +178,7 @@ public class App {
         
         
     }
+
+   
 }
             
